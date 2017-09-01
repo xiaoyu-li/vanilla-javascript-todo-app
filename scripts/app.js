@@ -1,8 +1,10 @@
 requirejs.config({
-  baseUrl: 'scripts/app'
+  baseUrl: 'scripts/components'
 });
 
-requirejs(['task'], function(task) {
-  var a = new task({ name: '123' });
-  a.complete();
+requirejs(['Task'], function(Task) {
+  var a = new Task({ name: 'What does the fox say?', id: 1 });
+  a.toggleComplete();
+  a.toggleStarred();
+  a.save();
 });
