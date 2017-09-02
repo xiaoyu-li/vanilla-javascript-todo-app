@@ -7,9 +7,35 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script data-main="scripts/app.js" src="scripts/require.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+  <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
+  <aside role="navigation" class="app-menu"></aside>
+  <main class="app-main">
+    <div class="task-toolbar">
+      <h1 class="app-title">Inbox</h1>
+      <div class="task-toolbar-icons">
+        <span class="search-icon-wrapper"><i class="fa fa-sort-alpha-asc"></i></span>
+        <span class="search-icon-wrapper"><i class="fa fa-ellipsis-v"></i></span>
+      </div>
+    </div>
+    <div class="task-list">
+      <form id="add-task">
+        <span><i class="fa fa-plus"></i></span>
+        <input type="text" placeholder="Add a to-do... " />
+      </form>
+      <ul id="task-list"></ul>
+      <button id="show-completed">SHOW COMPLETED TO-DOS</button>
+      <ul id="task-list-done" class="hidden"></ul>
+    </div>
+  </main>
+
+  <aside class="task-info">
+
+  </aside>
+  <script src="https://use.fontawesome.com/184de66172.js"></script>
 
 </body>
 

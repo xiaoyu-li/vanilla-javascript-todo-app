@@ -1,0 +1,137 @@
+:root {
+  --primary: #00a854;
+  --font-color: #1c1c1c;
+  --border-radius: 0.25em;
+}
+
+body {
+  color: var(--font-color);
+  background: #ddd;
+  height: 100vh;
+  background-image: url(https://static.wunderlist.com/e1a9ddc47beb988e8bc86d09a7d2780a9868097d/images/backgrounds/2048/06.jpg) !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+ul {
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  display: flex;
+  background: var(--primary);
+  border-radius: var(--border-radius);
+  padding: 0;
+  border: 0;
+  color: #fff;
+  padding: 0 1em;
+  height: 1.8em;
+}
+
+/* ----------------------------------
+ * util classes 
+ * ---------------------------------- */
+
+.hidden {
+  display: none;
+  opacity: 0 !important;
+}
+
+/* ----------------------------------
+ * left sidebar 
+ * ---------------------------------- */
+
+/* ----------------------------------
+ * main content 
+ * ---------------------------------- */
+.app-main {
+  flex: 1;
+  height: 100vh;
+  overflow: auto;
+}
+
+.task-toolbar {
+  position: relative;
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5em;
+  background: #3dbd7d;
+  padding: 0 1em;
+}
+
+.app-title {
+  font-weight: normal;
+  font-size: 1.1em;
+}
+
+.task-toolbar-icons span {
+  margin: 0 0.5em;
+}
+
+.task-list {
+  margin: 1em;
+}
+
+#add-task {
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  height: 2.5em;
+  background: #3dbd7d;
+  color: #fff;
+}
+
+#add-task > span {
+  margin: 0.6em;
+}
+
+#add-task input {
+  width: 100%;
+  color: inherit;
+  background: inherit;
+  outline: none;
+  border: none;
+}
+
+.task.selected {
+  background: hsla(205, 94%, 94%, 1);
+}
+
+.task {
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  height: 2.5em;
+  background: #fff;
+  margin-bottom: 1px;
+}
+
+.task > input {
+  width: 2.5em;
+}
+
+.task > input:checked + span {
+  text-decoration: line-through;
+}
+
+.task-text {
+  flex: 1;
+  line-height: 2.5em;
+  height: 2.5em;
+}
+
+.task-icon i.highlight {
+  color: var(--primary);
+}
+
+#task-list-done {
+  transition: all 0.5s ease;
+  opacity: 0.5;
+}
