@@ -1,6 +1,17 @@
 define(['./components/Task', './components/TaskManager'], function(Task, TaskManager) {
   'use strict';
-  var id = 0;
+
+  const Selector = {
+    ADD_BTN: '#add-task',
+    TASK_LIST: '#task-list',
+    TASK_LIST_DONE: '#task-list-done',
+    SHOW_COMPLETE: '#show-completed'
+  };
+
+  const addTaskBtn = document.querySelector(Selector.ADD_BTN);
+  const taskList = document.querySelector(Selector.TASK_LIST);
+  const taskListDone = document.querySelector(Selector.TASK_LIST_DONE);
+  const showComplete = document.querySelector(Selector.SHOW_COMPLETE);
 
   function toggleTaskItem(e) {
     // console.dir(e.target);
@@ -12,7 +23,6 @@ define(['./components/Task', './components/TaskManager'], function(Task, TaskMan
       const index = e.target.dataset.index;
       TaskManager.toggleDone(index);
     } else {
-      console.log('clicked somewhere else');
       return;
     }
     populateList(taskList, TaskManager.getTasks());
@@ -43,17 +53,12 @@ define(['./components/Task', './components/TaskManager'], function(Task, TaskMan
             <input type="checkbox" data-index="${task.id}" ${task.done ? 'checked' : ''}/>
             <span class="task-text">${task.name}</span>
             <span class="task-icon" ><i data-index="${task.id}" class="fa fa-stack ${task.starred
-            ? 'fa-star highlight'
+            ? `fa-star highlight`
             : 'fa-star-o'}"></i></span>
           </li>`
       )
       .join('');
   }
-
-  const addTaskBtn = document.querySelector('#add-task');
-  const taskList = document.querySelector('#task-list');
-  const taskListDone = document.querySelector('#task-list-done');
-  const showComplete = document.querySelector('#show-completed');
 
   function start() {
     addTaskBtn.addEventListener('submit', handleAddTask);

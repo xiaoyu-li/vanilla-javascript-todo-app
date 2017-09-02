@@ -1,9 +1,14 @@
 define(['components/Task'], function(Task) {
   'use strict';
+
   const tasks = initialTasks();
   let taskId = tasks.length;
 
-  //private
+  /**
+   * ------------------------------------------------------------------------
+   * private
+   * ------------------------------------------------------------------------
+   */
 
   function initialTasks() {
     const data = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -11,11 +16,16 @@ define(['components/Task'], function(Task) {
       return new Task(item);
     });
   }
+
   function updateLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
-  //public
+  /**
+   * ------------------------------------------------------------------------
+   * public
+   * ------------------------------------------------------------------------
+   */
 
   function addTask(name) {
     tasks.push(new Task({ id: taskId++, name }));
