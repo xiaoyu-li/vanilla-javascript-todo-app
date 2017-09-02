@@ -1,30 +1,47 @@
 define(['components/Task'], function(Task) {
   'use strict';
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  const tasks = initialTasks();
   let taskId = tasks.length;
 
   //private
+
+  function initialTasks() {
+    const data = JSON.parse(localStorage.getItem('tasks')) || [];
+    return data.map(function(item) {
+      return new Task(item);
+    });
+  }
   function updateLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
   //public
+
   function addTask(name) {
     tasks.push(new Task({ id: taskId++, name }));
     updateLocalStorage();
   }
 
-  function getTask(id) {
-    return tasks[id];
+  function toggleDone(id) {
+    console.log(id);
+    tasks[id].toggleDone();
+    updateLocalStorage();
+  }
+
+  function toggleStarred(id) {
+    tasks[id].toggleStarred();
+    updateLocalStorage();
   }
 
   function getTasks() {
+    console.log(tasks);
     return tasks;
   }
 
   return {
     addTask,
-    getTask,
+    toggleDone,
+    toggleStarred,
     getTasks
   };
 });

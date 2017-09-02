@@ -4,8 +4,8 @@ define(function() {
       this.id = data.id;
       this.name = data.name;
       this.priority = data.priority || 0;
-      this.done = false;
-      this.starred = false;
+      this.done = data.done || false;
+      this.starred = data.starred || false;
     }
 
     toggleDone() {
