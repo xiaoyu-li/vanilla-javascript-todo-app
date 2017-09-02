@@ -43,15 +43,23 @@ define(['components/Task'], function(Task) {
     updateLocalStorage();
   }
 
-  function getTasks() {
-    console.log(tasks);
+  function getAllTasks() {
     return tasks;
   }
 
+  function getCompletedTasks() {
+    return tasks.filter(task => !task.done);
+  }
+
+  function getIncompletedTasks() {
+    return tasks.filter(task => task.done);
+  }
   return {
     addTask,
     toggleDone,
     toggleStarred,
-    getTasks
+    getAllTasks,
+    getCompletedTasks,
+    getIncompletedTasks
   };
 });
