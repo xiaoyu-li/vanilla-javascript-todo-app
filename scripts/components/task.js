@@ -4,13 +4,13 @@ define(function() {
       this.id = data.id;
       this.name = data.name;
       this.priority = data.priority || 0;
-      this.complete = false;
+      this.done = false;
       this.starred = false;
     }
 
-    toggleComplete() {
-      this.complete = !this.complete;
-      console.log(`Task [${this.name}] marked as [${this.complete ? 'complete' : 'not complete'}]`);
+    toggleDone() {
+      this.done = !this.done;
+      console.log(`Task [${this.name}] marked as [${this.done ? 'complete' : 'not complete'}]`);
     }
 
     toggleStarred() {
